@@ -3,3 +3,10 @@ button {
     height: 50px;
     width: 50px;
 }
+
+.calculatorButtons {
+    display: flex;
+    flex-wrap: wrap;
+    height: 280px;
+    width: 168px;
+}
