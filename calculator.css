@@ -1,12 +1,24 @@
+div{border:1px red solid;}
 button {
     font-size: 30px;
     height: 50px;
     width: 50px;
 }
 
-.calculatorButtons {
+.calculatorContainer {
+      display: flex;
+    height: 200px;
+    width: 218px;
+}
+.nums {
     display: flex;
-    flex-wrap: wrap;
-    height: 280px;
-    width: 168px;
+    flex-wrap: wrap;    
+    
+    
+}
+.operaters {
+    display: flex;
+    flex-wrap: wrap;    
+    height: 200px;
+    width: 56px;
 }
