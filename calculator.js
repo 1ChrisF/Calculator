@@ -12,10 +12,15 @@ const equalButton = document.getElementById("=");
 equalButton.addEventListener('click', equals);
 
 function addNumToString() {
+    if (this.id == "." && numB == "" || this.id == "." && numB.indexOf(".") != -1) return;
     numB += this.id;
-    console.log(this.id, numB);
-    runningUpdate(numB)
+    displayInput(numB)
 }
+function displayInput(num){
+    const inputDisplay = document.getElementById('input');
+    inputDisplay.innerText = `Input:${num}`;
+}
+
 const displayRunningTotal = document.getElementById('result');
 function runningUpdate(num) {
     displayRunningTotal.innerText = `Total:${num}`;
@@ -24,16 +29,18 @@ function putOperator() {
     if (numB.length === 0) return;
     if (operator.length === 0) {
         operator[0] = this.id;
-        numB = parseInt(numB);
+        numB = parseFloat(numB);
         numA += numB;
         numB = "";
         runningUpdate(numA);
     } else {
-        numB = parseInt(numB);
+        numB = parseFloat(numB);
         operate(operator[0], numA, numB);
         numB = "";
+        runningUpdate(numA);
         operator[0] = this.id;
     };
+    displayInput(0);
 }
 function lastNum() {
     return;
@@ -55,10 +62,12 @@ function operate(operator, a, b) {
     }
 }
 function equals() {
-    operate(operator[0], numA, parseInt(numB));
+    if(numB === "")return runningUpdate(0);
+    operate(operator[0], numA, parseFloat(numB));    
     numB = "";
     operator = [];
     runningUpdate(numA);
+    displayInput(0);
     numA = 0;
 }
 //operators
