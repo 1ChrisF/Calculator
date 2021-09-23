@@ -4,12 +4,14 @@ let operator = [];
 let displayResult = 0;
 let ans = 0;
 
-const numbers = document.querySelectorAll(".number")
+const numbers = document.querySelectorAll(".number");
 numbers.forEach(element => element.addEventListener('click', addNumToString));
 const operators = document.querySelectorAll('.operator');
 operators.forEach(element => element.addEventListener('click', putOperator));
 const equalButton = document.getElementById("=");
 equalButton.addEventListener('click', equals);
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", clear);
 
 function addNumToString() {
     if (this.id == "." && numB == "")return;
@@ -79,6 +81,14 @@ function equals() {
     numA = 0;
 }
 
+function clear(){
+    numB = "";
+    numA = 0;
+    operator = [];
+    runningUpdate(0);
+    clearExpression()
+
+}
 /* window.addEventListener('keydown', function(e){
     console.log(e.key);
 }) */
