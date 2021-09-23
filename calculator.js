@@ -16,7 +16,7 @@ function addNumToString() {
     numB += this.id;
     displayInput(numB)
 }
-function displayInput(num){
+function displayInput(num) {
     const inputDisplay = document.getElementById('input');
     inputDisplay.innerText = `Input:${num}`;
 }
@@ -29,12 +29,12 @@ function putOperator() {
     if (numB.length === 0) return;
     if (operator.length === 0) {
         operator[0] = this.id;
-        numB = parseFloat(numB);
+        numB = Number(numB);
         numA += numB;
         numB = "";
         runningUpdate(numA);
     } else {
-        numB = parseFloat(numB);
+        numB = Number(numB);
         operate(operator[0], numA, numB);
         numB = "";
         runningUpdate(numA);
@@ -59,18 +59,18 @@ function operate(operator, a, b) {
             break;
         case "/":
             numA = a / b;
+            break
+        default: numA = b
     }
 }
 function equals() {
-    if(numB === "")return runningUpdate(0);
-    operate(operator[0], numA, parseFloat(numB));    
+    operate(operator[0], numA, Number(numB));
     numB = "";
     operator = [];
     runningUpdate(numA);
     displayInput(0);
     numA = 0;
 }
-//operators
 
 /* window.addEventListener('keydown', function(e){
     console.log(e.key);
