@@ -6,24 +6,28 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    background-color: rgb(85, 62, 41);
+    background-color: rgb(232, 218, 238);
     width: fit-content;
     margin: auto;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(230, 154, 141) inset;
+    
 }
 
 .output {
     grid-column-start: 1;
     grid-column-end: 5;
-    background-color: rgb(66, 66, 73);
+    background-color: rgb(75, 112, 104);    
     margin: 0 5px 0 5px;
     font-size: 24px;
+    
 }
 
 .output.input {   
     border-radius: 10px 10px 0 0;
     padding: 5px;
+    margin-top:10px ;
 }
 
 .output.total {
@@ -37,13 +41,16 @@ button {
     font-size: 30px;
     height: 50px;
     width: 50px;
-    border: 1px rgba(136, 134, 134, 0) solid;
+    border: 1px rgb(19, 19, 80) solid;
+    cursor: pointer;
 }
 
 button:hover {
     border: 1px rgb(0, 132, 184) solid;
     color: rgb(0, 9, 63);
     filter: brightness(140%);
+    box-shadow: 0px 0px 10px rgb(0, 132, 184);
+    
 }
 
 button.clear {
@@ -63,7 +70,7 @@ button.number {
 }
 
 button.clear {
-    background-color: rgb(222, 160, 135);
+    background-color: rgb(119, 95, 184);
 }
 
 button.equal {
