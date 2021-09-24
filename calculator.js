@@ -16,13 +16,14 @@ clearButton.addEventListener("click", clear);
 function addNumToString() {
     if (this.id == "." && numB == "")return;
     if (this.id == "." && numB.indexOf(".") != -1) return;
-    if (numB.length > 14)return;        
+    //if (numB.length > 14)return;        
     numB += this.id;
     displayInput(this.id)
 }
 function displayInput(expression) {
     const inputDisplay = document.getElementById('input');
     inputDisplay.innerText += expression;
+    if(inputDisplay.innerText.length >= 15)inputDisplay.innerText ="<" + inputDisplay.innerText.substring(2, 15)
 
 }
 function clearExpression(){
@@ -76,7 +77,7 @@ function equals() {
     operate(operator[0], numA, Number(numB));
     numB = "";
     operator = [];
-    runningUpdate(+(numA.toFixed(15)));
+    runningUpdate(+(numA.toFixed(12)));
     clearExpression();
     numA = 0;
 }
