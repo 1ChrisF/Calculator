@@ -1,5 +1,5 @@
-div {
-    border: 1px red solid;
+body {
+    background-color: grey;
 }
 
 .calculatorContainer {
@@ -8,6 +8,7 @@ div {
     grid-template-rows: repeat(7, 1fr);
     background-color: rgb(85, 62, 41);
     width: fit-content;
+    margin: auto;
     padding: 10px;
     border-radius: 10px;
 }
@@ -15,6 +16,21 @@ div {
 .output {
     grid-column-start: 1;
     grid-column-end: 5;
+    background-color: rgb(66, 66, 73);
+    margin: 0 5px 0 5px;
+    font-size: 24px;
+}
+
+.output.input {   
+    border-radius: 10px 10px 0 0;
+    padding: 5px;
+}
+
+.output.total {
+    text-align: right;  
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 10px;
+    padding: 5px;
 }
 
 button {
@@ -25,21 +41,21 @@ button {
 }
 
 button:hover {
-    opacity: 0.5;
-    border: 1px rgb(0, 183, 255) solid;
-    color:rgb(47, 255, 255)
+    border: 1px rgb(0, 132, 184) solid;
+    color: rgb(0, 9, 63);
+    filter: brightness(140%);
 }
 
 button.clear {
     width: 200px;
     grid-column-start: 1;
     grid-column-end: 5;
-    background-color: aliceblue;
-    border-radius:0 0 10px 10px  ;
+    background-color: rgb(139, 162, 182);
+    border-radius: 0 0 10px 10px;
 }
 
 button.operator {
-    background-color: aqua;
+    background-color: rgb(52, 16, 119);
 }
 
 button.number {
@@ -47,9 +63,17 @@ button.number {
 }
 
 button.clear {
-    background-color: burlywood;
+    background-color: rgb(222, 160, 135);
 }
 
 button.equal {
-    background-color: rgb(0, 255, 170);
+    background-color: rgb(26, 66, 131);
+}
+
+button.seven {
+    border-radius: 10px 0 0 0;
+}
+
+button.times {
+    border-radius: 0 10px 0 0;
 }

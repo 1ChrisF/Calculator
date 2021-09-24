@@ -22,16 +22,16 @@ function addNumToString() {
 }
 function displayInput(expression) {
     const inputDisplay = document.getElementById('input');
-    inputDisplay.innerText += `${expression}`;
+    inputDisplay.innerText += expression;
 
 }
 function clearExpression(){
-    document.getElementById('input').innerText = "Input:";
+    document.getElementById('input').innerText = "";
 }
 
 const displayRunningTotal = document.getElementById('result');
 function runningUpdate(num) {
-    displayRunningTotal.innerText = `Total:${num}`;
+    displayRunningTotal.innerText = num;
 }
 function putOperator() {
     if (numB.length === 0) return;
