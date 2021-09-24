@@ -4,21 +4,29 @@ let operator = [];
 let displayResult = 0;
 let ans = 0;
 
-const numbers = document.querySelectorAll(".number")
+const numbers = document.querySelectorAll(".number");
 numbers.forEach(element => element.addEventListener('click', addNumToString));
 const operators = document.querySelectorAll('.operator');
 operators.forEach(element => element.addEventListener('click', putOperator));
 const equalButton = document.getElementById("=");
 equalButton.addEventListener('click', equals);
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", clear);
 
 function addNumToString() {
-    if (this.id == "." && numB == "" || this.id == "." && numB.indexOf(".") != -1) return;
+    if (this.id == "." && numB == "")return;
+    if (this.id == "." && numB.indexOf(".") != -1) return;
+    if (numB.length > 14)return;        
     numB += this.id;
-    displayInput(numB)
+    displayInput(this.id)
 }
-function displayInput(num) {
+function displayInput(expression) {
     const inputDisplay = document.getElementById('input');
-    inputDisplay.innerText = `Input:${num}`;
+    inputDisplay.innerText += `${expression}`;
+
+}
+function clearExpression(){
+    document.getElementById('input').innerText = "Input:";
 }
 
 const displayRunningTotal = document.getElementById('result');
@@ -32,15 +40,16 @@ function putOperator() {
         numB = Number(numB);
         numA += numB;
         numB = "";
-        runningUpdate(numA);
+        displayInput(this.id)       
     } else {
+       
         numB = Number(numB);
         operate(operator[0], numA, numB);
         numB = "";
+        clearExpression()
         runningUpdate(numA);
         operator[0] = this.id;
-    };
-    displayInput(0);
+    };    
 }
 function lastNum() {
     return;
@@ -67,11 +76,19 @@ function equals() {
     operate(operator[0], numA, Number(numB));
     numB = "";
     operator = [];
-    runningUpdate(numA);
-    displayInput(0);
+    runningUpdate(+(numA.toFixed(15)));
+    clearExpression();
     numA = 0;
 }
 
+function clear(){
+    numB = "";
+    numA = 0;
+    operator = [];
+    runningUpdate(0);
+    clearExpression()
+
+}
 /* window.addEventListener('keydown', function(e){
     console.log(e.key);
 }) */
