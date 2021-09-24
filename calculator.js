@@ -57,7 +57,7 @@ function lastNum() {
 function operate(operator, a, b) {
 
     switch (operator) {
-        case "plus":
+        case "+":
             numA = a + b;
             break;
         case "-":
