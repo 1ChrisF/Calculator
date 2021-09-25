@@ -31,8 +31,11 @@ function clearExpression(){
 }
 
 const displayRunningTotal = document.getElementById('result');
-function runningUpdate(num) {
-    displayRunningTotal.innerText = num;
+function runningUpdate(num) {       
+   if(num.toString().length > 15){
+        displayRunningTotal.innerText = num.toExponential(9)
+    }else{
+    displayRunningTotal.innerText = num;}
 }
 function putOperator() {
     if (numB.length === 0) return;
